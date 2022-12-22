@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge Creator</title>
+    <style>
+        .input-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        input, select {
+            display: block;
+            margin: 5px;
+            padding: 5px;
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <input type="text" id="message" placeholder="Mensagem">
+        <input type="text" id="color" placeholder="Cor">
+        <select id="style">
+            <option value="plastic">plastic</option>
+            <option value="flat">flat</option>
+            <option value="flat-square">flat-square</option>
+            <option value="for-the-badge">for-the-badge</option>
+            <option value="social">social</option>
+
+          </select>
+        <input type="text" id="logo" placeholder="Logo">
+        <input type="text" id="logoColor" placeholder="Cor da Logo">
+        <input type="button" id="btn" value="Criar">
+    </div>
+
+    <p>
+        Logotipos podem ser encontrados em: <a href="https://simpleicons.org/">https://simpleicons.org/</a>
+    </p>
+
+    <div class="content">
+        <img src="">
+        <p></p>
+    </div>
+
+    <script>
+        const msg = document.querySelector("#message");
+        const color = document.querySelector("#color");
+        const style = document.querySelector("#style");
+        const logo = document.querySelector("#logo");
+        const logoColor = document.querySelector("#logoColor");
+        const btn = document.querySelector("#btn");
+        const img = document.querySelector(".content img");
+        const p = document.querySelector(".content p") 
+
+        btn.addEventListener("click", () => {
+            let imgSrc = `https://img.shields.io/static/v1?label=&message=${msg.value}&color=${color.value}&style=${style.value}&logo=${logo.value}&logoColor=${logoColor.value}`;
+
+            img.src = imgSrc;
+            p.innerHTML = imgSrc;
+        });
+    </script>
+</body>
+</html>
